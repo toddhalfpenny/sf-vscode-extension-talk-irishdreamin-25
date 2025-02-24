@@ -1,23 +1,634 @@
 <!doctype html>
 <html lang="en">
 	<head>
+		<link rel="icon" type="image/x-icon" href="assets/imgs/favicon.ico">
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>Irish Dreamin' 24</title>
 
 		<link rel="stylesheet" href="dist/reset.css">
 		<link rel="stylesheet" href="dist/reveal.css">
 		<link rel="stylesheet" href="dist/theme/black.css">
+		<link rel="stylesheet" href="dist/theme/irishdreamin.css">
 
 		<!-- Theme used for syntax highlighted code -->
 		<link rel="stylesheet" href="plugin/highlight/monokai.css">
 	</head>
 	<body>
 		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+			<div id="slides" class="slides">
+				<!-- 
+					===========================================================
+					HEADER
+				-->
+				<header id='header' class="hidden">
+				</header>
+
+
+				<!-- 
+					===========================================================
+					TITLE
+				-->
+				<section id="title-slide" data-background-image="assets/imgs/title.png" data-background-size="contain">
+					<h1>Build your first Code Builder<br/>and VS Code Extension</h1>
+					<h2>Todd Halfpenny</h2>
+					<aside class="notes">
+						<ul>
+							<li>Hullo</li>
+							<li>VS Code Plugins</li>
+							<li>Thank you</li>
+						</ul>
+					</aside>
+				</section>
+				
+
+				<!-- 
+					===========================================================
+					INTRO
+				-->
+				<section id="speaker" class="circle-right has-footer">
+					<h1>Todd Halfpenny</h1>
+					<ul>
+						<li>Mobile Technical Architect @ Caddify</li>
+						<li>Salesforce MVP</li>
+						<li>London Dev Group Leader</li>
+						<li>London's Calling Organiser</li>
+						<li>Founder @ Shirtforce</li>
+						<li>@toddhalfpenny / @toddhalfpenny.com</li>
+					</ul>
+					<img id="todd" src="assets/imgs/todd-mvp.jpg">
+					<aside class="notes">
+						<ul>
+							<li></li>
+						</ul>
+					</aside>
+				</section>
+
+				<!-- 
+					===========================================================
+					AGENDA
+				-->
+				<section class="has-footer circle-bottom">
+					<h1>Agenda</h1>
+					<ul>
+						<li class="fragment">Extensions</li>
+						<li class="fragment">Our use case</li>
+						<li class="fragment">Build</li>
+						<li class="fragment">Publish</li>
+						<!-- <li class="fragment">Resources</li> -->
+						<li class="fragment">Q&amp;A</li>
+					</ul>
+					<aside class="notes">
+						<ul>
+							<li></li>
+						</ul>
+					</aside>
+				</section>
+
+				<!-- 
+					===========================================================
+					NOT DOING THIS ALONE
+				-->
+				<section class="has-footer has-header-left circle-bottom">
+					<h1>We're not doing this alone</h1>
+				</section>
+				<section class="fullvideo" class="fullvideo circle-bottom"
+				"  data-background-size="contain"
+					data-background-video ="assets/vids/bonjour.m4v" >
+					<aside class="notes">
+						<ul>
+							<li></li>
+						</ul>
+					</aside>					
+				</section>
+
+
+
+				<!-- 
+					===========================================================
+					EXTENSIONS
+				-->
+				<section class="has-footer has-header-left"  ">
+					<h1>So... extensions you say?</h1>
+				</section>
+				<section class="fullvideo" class="fullvideo"
+				data-background-size="contain"
+					data-background-video ="assets/vids/id-what-are-extensions-03.m4v" >
+					<aside class="notes">
+						<ul>
+							<li>What are they</li>
+							<li>Examples</li>
+							<li>What can they do?</li>
+							<li>Why create one of our own</li>
+						</ul>
+					</aside>
+					
+				</section>
+
+
+				<!-- 
+					===========================================================
+					WHAT ARE WE GOING TO BUILD
+				-->
+				<section class="has-footer has-header-left circle-bottom" >
+					<h1>And just what are we going to build?</h1>
+					<div class="r-stack">
+						<img
+							class="fragment screenshot center"
+							src="assets/imgs/id-status-01.png"
+						/>
+						<img
+							class="fragment screenshot center"
+							src="assets/imgs/id-status-02.png"
+						/>
+						<img
+							class="fragment screenshot center"
+							src="assets/imgs/id-status-03.png"
+						/>
+					</div>
+					<aside class="notes">
+						<ul>
+							<li>Hands up if you're familiar with this site</li>
+							<li>There is an API for all this</li>
+							<li></li>
+							<li></li>
+						</ul>
+					</aside>
+					
+				</section>
+
+				<!-- 
+					===========================================================
+					LETS GET STARTED
+				-->
+				<section class="has-footer has-header-left circle-bottom">
+					<h1>Let's get started</h1>
+					<div class="r-stack">
+						<img
+							class="fragment screenshot center"
+							src="assets/imgs/id-started-01.png"
+						/>
+						<img
+							class="fragment screenshot center"
+							src="assets/imgs/id-started-02.png"
+						/>
+					</div>
+					<aside class="notes">
+						<ul>
+							<li>What do we need to build tools?</li>
+						</ul>
+					</aside>					
+				</section>
+				<section class="has-footer has-header-left"  ">
+					<h1>INSTALL THE TOOLS!!</h1>
+						
+					<pre ><code class="language-yaml">
+						npm install -g yo generator-code vsce 
+						</code></pre>
+					<aside class="notes">
+						<ul>
+							<li>What do we need to build tools?</li>
+						</ul>
+					</aside>					
+				</section>
+				<section class="fullvideo" class="fullvideo"
+				"  data-background-size="contain"
+					data-background-video ="assets/vids/id-getting-started.m4v" >
+					<aside class="notes">
+						<ul>
+							<li></li>
+						</ul>
+					</aside>					
+				</section>
+				<section class="fullvideo" class="fullvideo"
+				  data-background-size="contain"
+					data-background-video ="assets/vids/id-bonjour-tous-le-monde.m4v" >
+					<aside class="notes">
+						<ul>
+							<li></li>
+						</ul>
+					</aside>					
+				</section>
+
+
+				<!-- 
+					===========================================================
+					WHAT ABOUT OUR USE CASE
+				-->
+				<section class="has-footer has-header-left">
+					<h1>What about our use case?</h1>
+				</section>
+				<section class="has-footer has-header-left circle-right">
+						<h1 class="filename">package.json</h1>
+						<pre class="padding"><code class="language-json" data-trim data-line-numbers="0|8-11">
+...						
+"contributes": {
+	"commands": [
+		{
+			"command": "id-talk.helloWorld",
+			"title": "ID: Hello"
+		},
+		{
+			"command": "id-talk.getStatus",
+			"title": "ID: Get Org Status"
+		}
+	]
+}
+...					
+						</code></pre>
+					<aside class="notes">
+						<ul>
+							<li>Think about it</li>
+							<li>Iterative</li>
+						</ul>
+					</aside>		
+				</section>
+				<section class="has-footer has-header-left">
+					<h1 class="filename">extension.ts</h1>
+						<pre><code class="language-typescript" data-trim data-line-numbers="0|3-9|6-7|13-22">
+...	
+
+const disposableGetStatus = commands.registerCommand(
+	'id-talk.getStatus',
+	async () => {
+		const instance = await showInputBox();
+		console.log(`Instance: ${instance}`);
+	}
+);
+
+...			
+...
+
+async function showInputBox() {
+  const prompt = "Please enter an instance key and hit [enter]";
+  const result = await window.showInputBox({
+    title: "Org Instance:",
+    prompt: prompt,
+    placeHolder: "For example: SWE98",
+  });
+  return result;
+}
+
+...
+						</code></pre>
+					<aside class="notes">
+						<ul>
+							<li>Think about it</li>
+							<li>Iterative</li>
+						</ul>
+					</aside>		
+				</section>
+				<section class="fullvideo" class="fullvideo"
+				data-background-size="contain"
+					data-background-video ="assets/vids/id-input.m4v">
+					<aside class="notes">
+						<ul>
+							<li></li>
+						</ul>
+					</aside>					
+				</section>
+
+
+				<!-- 
+					===========================================================
+					CALL THE API
+				-->
+				<section class="has-footer has-header-left">
+					<h1 class="filename">status.service.ts</h1>
+						<pre class="padding"><code class="language-typescript" data-trim data-line-numbers="0|3|4|5-6|">
+...
+
+export async function instanceStatus(instance: string) {
+		const uri = `${API_ENDPOINT}instances/${instance}/status`;
+		const response = await fetch(uri);
+		return await response.json();
+}
+
+...
+</code></pre>
+					<aside class="notes">
+						<ul>
+							<li>Got new service</li>
+							<li></li>
+						</ul>
+					</aside>		
+				</section>
+				<section class="fullvideo" class="fullvideo"
+				data-background-size="contain"
+					data-background-video ="assets/vids/id-status.m4v">
+					<aside class="notes">
+						<ul>
+							<li></li>
+						</ul>
+					</aside>					
+				</section>
+
+
+				<!-- 
+					===========================================================
+					OUTPUT CHANNELS
+				-->
+				<section class="has-footer has-header-left">
+					<h1>That's all very good, but...</h1>
+					<div class="fragment">
+					<p class="filename">log.service.ts</p>
+					<pre class="padding"><code class="language-typescript" data-trim data-line-numbers="0|1|4-5|10|">
+import { OutputChannel } from "vscode";
+
+export const activate = (context: ExtensionContext): void => {
+  outputChannel = window.createOutputChannel("SF Org Status");
+  outputChannel.clear();
+};
+
+...
+
+outputChannel.appendLine("Hullo again!");
+
+...
+						</code></pre>
+					</div>
+					<aside class="notes">
+						<ul>
+							<li>Lots of ways to output info</li>
+							<li>Have you ever run SFDX commands?</li>
+							<li>Let's start with the output channels</li>
+						</ul>
+					</aside>					
+				</section>
+				<section class="fullvideo" class="fullvideo"
+				data-background-size="contain"
+					data-background-video ="assets/vids/id-output.m4v">
+					<aside class="notes">
+						<ul>
+							<li></li>
+						</ul>
+					</aside>					
+				</section>
+
+
+				<!-- 
+					===========================================================
+					MODAL
+				-->
+				<section class="has-footer has-header-left">
+					<h1>Better... but not really friendly</h1>
+					<div class="fragment">
+						<p class="filename">extension.ts</p>
+						<pre class="padding"><code class="language-typescript" data-trim data-line-numbers="0|1-2|4-7|9-12">
+const title: instance;
+const statusText = `Status: ${status.status}\n\rEnv:...}`,
+
+const options: MessageOptions = {
+	detail: statusText,
+	modal: true,
+};
+
+return window.showInformationMessage(
+	title,
+	options,
+);
+
+...
+							</code></pre>
+					</div>
+					<aside class="notes">
+						<ul>
+							<li>Modals</li>
+						</ul>
+					</aside>					
+				</section>
+				<section class="fullvideo" class="fullvideo"
+				data-background-size="contain"
+					data-background-video ="assets/vids/id-modal.m4v">
+					<aside class="notes">
+						<ul>
+							<li></li>
+						</ul>
+					</aside>					
+				</section>
+
+
+				<!-- 
+					===========================================================
+					ALIAS + ORG RECORD
+				-->
+				<section class="has-footer has-header-left">
+					<h1>Which instance <em>am</em> I?</h1>
+					<ul class="qanda">
+						<li><span class="question fragment">Does anything know?</span><span class="answer fragment">Your org does</span></li>
+						<li><span class="question fragment">What's the current org?</span><span class="answer fragment">.sfdx/sfdx-config.json</span></li>
+						<li><span class="question fragment">What about the username?</span><span class="answer fragment">~/.sfdx/aliases.json</span></li>
+						<li><span class="question fragment">Can we query an org via a username?</span><span class="answer fragment">Yes... it took some digging</span></li>
+					</ul>
+					<aside class="notes">
+						<ul>
+							<li>Modals</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="has-footer has-header-left">
+						<h1>Which instance <em>am</em> I?</h1>
+					<div class="">
+						<p class="filename">org.service.ts</p>
+						<pre class="padding"><code class="language-typescript" data-trim data-line-numbers="0|1-2|4-6|7-14">
+import { AuthInfo, Connection } 
+	from "@salesforce/core-bundle";		
+
+const connection = await Connection.create({
+	authInfo: await AuthInfo.create({ username: uname }),
+});
+const rawQueryData = await connection.query(
+	"SELECT 
+		InstanceName,
+		isSandbox,
+		TrialExpirationDate
+	FROM
+		Organization",
+);				
+						</code></pre>
+					</div>
+					<aside class="notes">
+						<ul>
+							<li>Querying the default org</li>
+						</ul>
+					</aside>					
+				</section>
+				<section class="fullvideo" class="fullvideo"
+				data-background-size="contain"
+					data-background-video ="assets/vids/id-org-record.m4v">
+					<aside class="notes">
+						<ul>
+							<li></li>
+						</ul>
+					</aside>					
+				</section>
+
+
+				<!-- 
+					===========================================================
+					DEFAULT INSTANCE
+				-->
+				<section class="fullvideo" class="fullvideo"
+				data-background-size="contain"
+					data-background-video ="assets/vids/id-default-instance.m4v">
+					<aside class="notes">
+						<ul>
+							<li></li>
+						</ul>
+					</aside>					
+				</section>
+
+
+				<!-- 
+					===========================================================
+					INVOCATION
+				-->
+				<section class="has-footer has-header-left">
+					<h1>How else can we invoke this?</h1>
+						
+					<div class="fragment">
+						<p class="filename">package.json</p>
+						<pre class="padding" ><code class="language-json">
+"contributes": {
+	"menus": {
+		"explorer/context": [
+			{
+				"command": "salesforce-status.org-status",
+				"group": "z_commands"
+			}
+		],							
+							</code></pre>
+					</div>
+					<aside class="notes">
+						<ul>
+							<li></li>
+						</ul>
+					</aside>					
+				</section>
+				<section class="fullvideo" class="fullvideo"
+				data-background-size="contain"
+					data-background-video ="assets/vids/id-menu.m4v">
+					<aside class="notes">
+						<ul>
+							<li></li>
+						</ul>
+					</aside>					
+				</section>
+
+
+				<!-- 
+					===========================================================
+					POLISH
+				-->
+				<section class="has-footer has-header-left">
+					<h1>Let's take this a step further</h1>
+					<aside class="notes">
+						<ul>
+							<li>More usable output</li>
+							<li>Interactive</li>
+						</ul>
+					</aside>					
+				</section>
+				<section class="fullvideo" class="fullvideo"
+				data-background-size="contain"
+					data-background-video ="assets/vids/id-take-it-further.m4v">
+					<aside class="notes">
+						<ul>
+							<li></li>
+						</ul>
+					</aside>					
+				</section>
+
+					<!-- 
+					===========================================================
+					POLISH
+				-->
+				<section class="has-footer has-header-left">
+					<h1>Publishing</h1>
+					<div class="cols-2">
+						<ul>
+							<li class="fragment">Azure DevOps account</li>
+							<li class="fragment code">npm i -g @vscode/vsce</pre></li>
+							<li class="fragment code">vsce package</pre></li>
+							<li class="fragment">Visual Studio Marketplace</li>
+							<li class="fragment">Register on the Open VSX Registry</li>
+						</ul>
+						<img class="screenshot" src="assets/imgs/published.png" />
+					</div>
+					<aside class="notes">
+						<ul>
+							<li>Azure create an account and register publisher</li>
+							<li>README updates</li>
+							<li>Package plugin</li>
+							<li>Publish</li>
+						</ul>
+					</aside>					
+				</section>
+
+				<!-- 
+					===========================================================
+					Summary
+				-->
+				<section class="has-footer has-header-left">
+					<h1>So, in summary</h1>
+					<ul>
+						<li class="fragment">Extensions can be awesome</li>
+						<li class="fragment">Great set of suppporting tools and APIs</li>
+						<li class="fragment">Got an itch, scratch it</li>
+					</ul>
+					<aside class="notes">
+						<ul>
+							<li></li>
+						</ul>
+					</aside>
+				</section>
+
+
+
+				<!-- 
+					===========================================================
+					Resources
+				-->
+				<section class="has-footer has-header-left" >
+					<h1>Resources</h1>
+					<img id="resource-bitly" class="screenshot" src="assets/imgs/bit.ly_VsCodeFTD24.png" />
+					<ul>
+						<li>These slides<a target="_blank" href="https://toddhalfpenny.com/slides/ie25" class="href">toddhalfpenny.com/slides/ie25</a></li>
+						<li>VS Code Docs<a target="_blank"  class="href" href="https://code.visualstudio.com/api/get-started/your-first-extension">code.visualstudio.com/api/get-started/your-first-extension</a></li>
+						<li>Our Extension<a target="_blank" class="href" href="https://marketplace.visualstudio.com/items?itemName=ToddHalfpenny.salesforce-status">marketplace.visualstudio.com/items?itemName=ToddHalfpenny.salesforce-status</a></li>
+					</ul>
+					<aside class="notes">
+						<ul>
+							<li></li>
+						</ul>
+					</aside>
+				</section>
+
+
+				<!-- 
+					===========================================================
+					THANK YOU
+				-->
+				<section id="title-slide" data-background-image="assets/imgs/thank-you.png" data-background-size="contain">
+					<aside class="notes">
+						<ul>
+							<li></li>
+						</ul>
+					</aside>
+				</section>
+
+
+				<!-- 
+					===========================================================
+					FOOTER
+				-->
+				<footer id='footer' class="hidden">
+					<!-- <p class="author"><a href="https://twitter.com/toddhalfpenny">@toddhalfpenny</a></p> -->			
+					<p class="website">irish<span class="dreamin">dreamin</span>.ie</a></p>
+					<!-- <img src="assets/imgs/slide-footer-right-01.png"> -->
+				</footer>
+		
 			</div>
 		</div>
 
@@ -25,16 +636,104 @@
 		<script src="plugin/notes/notes.js"></script>
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/zoom/zoom.js"></script>
 		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
+			// COMMENTED OUT STUFF FROM C'DREAMIN 22 TALK
 			Reveal.initialize({
+				controls: false,
 				hash: true,
+				center: false,
+				maxScale: 3.0,
+				//margin: 0.18, // Reduced this for NAD as they have a slide background
+				margin: 0,
+				progress: false,
+				width: 1920,
+				height: 1200,
+  			transition: 'fade',
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom ]
 			});
+			Reveal.on( 'slidechanged', event => {
+				console.log('slidechanged', event.currentSlide);
+				if (event.currentSlide.className.includes('has-header-left')) {
+					showFooter(event.currentSlide.classList);
+					showHeader();
+				} else {
+					hideFooter();
+					hideHeader();
+				}
+				if (event.currentSlide.className.includes('has-footer')) {
+					showFooter(event.currentSlide.classList);
+				} else {
+					hideFooter();
+				}
+				if (event.currentSlide.className.includes('fullvideo')) {
+					hideBackground();
+				} else {
+					showBackground();
+				}
+				if (event.currentSlide.className.includes('is-title')) {
+					let el = document.getElementById('slides');
+					if (!el.classList.contains('slide-title')){ 
+						el.classList.add('slide-title');
+					};
+				} else {
+					let el = document.getElementById('slides');
+					if (el.classList.contains('slide-title')){ 
+						el.classList.remove('slide-title');
+					};
+				}
+			} );
+
+			function hideFooter() {
+				console.log('hideFooter');
+				let el = document.getElementById('footer');
+				console.log('footer', el);
+				if (el.className !== 'hidden'){ el.className = 'hidden' };
+			}
+
+			function showFooter(classList) {
+				console.log('showFooter');
+				let el = document.getElementById('footer');
+				console.log('footer', el);
+				if (el.className && el.className === 'hidden'){ 
+					el.classList.remove('hidden');
+				};
+
+				const isCircleBottom = classList.contains('circle-bottom');
+				console.log("isCircleBottom", isCircleBottom);
+				if (classList.contains('circle-bottom')) {
+					el.classList.add('white');
+				} else {
+					el.classList.remove('white');
+				}
+			}
+
+			function hideHeader() {
+				console.log('hideHeader');
+				let el = document.getElementById('header');
+				console.log('header', el);
+				if (el.className !== 'hidden'){ el.className = 'hidden' };
+			}
+
+			function showHeader() {
+				console.log('showHeader');
+				let el = document.getElementById('header');
+				console.log('header', el);
+				if (el.className && el.className === 'hidden'){ el.className = ''};
+			}
+
+			function showBackground() {
+				console.log('showBackground');
+				let el = document.getElementById('slides');
+				el.classList.remove("hide-background");
+			}
+
+			function hideBackground() {
+				console.log('hideBackground');
+				let el = document.getElementById('slides');
+				el.classList.add("hide-background");
+			}
 		</script>
 	</body>
 </html>

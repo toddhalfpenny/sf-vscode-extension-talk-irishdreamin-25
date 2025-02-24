@@ -1,0 +1,431 @@
+/**
+* A simple theme for reveal.js presentations, similar
+* to the default theme. The accent color is darkblue.
+*
+* This theme is Copyright (C) 2012 Owen Versteeg, https://github.com/StereotypicalApps. It is MIT licensed.
+* reveal.js is Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
+*/
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+
+// Include theme-specific fonts
+// @import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
+// @import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
+// @import url(https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic);
+@font-face {
+    font-family: "Nunito";
+    src: url("../assets/fonts/Nunito-Bold.ttf");
+}
+
+
+// Our variables
+:root {    
+    --idLightGray: #EDF3FF;
+    --idDarkGreen: #064902;
+    --idLightGreen: #79C000;
+    --idDarkBlue: #008675;
+    --accent:var(--idDarkBlue);
+}
+
+
+// Override theme settings (see ../template/settings.scss)
+$mainFont: 'Roboto',  serif, sans-serif;
+$mainFontSize: 58px;
+$mainColor: var(--idDarkGreen);
+$headingFont: 'Nunito', Impact, sans-serif;
+$headingColor: var(--idDarkGreen);
+$headingTextShadow: none;
+$headingTextTransform: none;
+$backgroundColor: var(--idLightGray);
+//  $linkColor: $naLightBlue;
+//  $linkColorHover: darken( $linkColor, 20% );
+$selectionBackgroundColor: rgba(0, 0, 0, 0.99);
+
+// Change text colors against dark slide backgrounds
+@include dark-bg-text-color(#008675);
+
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
+
+.backgrounds {
+background-color: var(--idLightGray);
+}
+
+// Layout
+section {
+    vertical-align: top;
+//  padding-right: 2em;
+//  padding-left: 2em;
+    padding-top: 0em;
+    margin-top: 0;
+}
+section.has-header-left {
+    background-image: url(../../assets/imgs/irish-dreamin.png);
+    background-repeat: no-repeat;
+    background-size: 3em;
+    background-position: top 1em left;
+}
+
+
+section.circle-right {
+    background-image: url(../../assets/imgs/irish-dreamin.png), url(../../assets/imgs/back-circle-right.png);
+    background-repeat: no-repeat;
+    background-size: 3em, 47%;
+    background-position: top 1em left, right;
+}
+
+
+section.circle-left {
+    background-image: url(../../assets/imgs/irish-dreamin.png), url(../../assets/imgs/back-circle-left.png);
+    background-repeat: no-repeat;
+    background-size: 3em, 47%;
+    background-position: top 1em left, left;
+}
+
+section.circle-bottom {
+    background-image: url(../../assets/imgs/back-circle-bottom.png), url(../../assets/imgs/irish-dreamin.png), ;
+    background-repeat: no-repeat;
+    background-size: 100%, 3em;
+    background-position:  bottom center, top 1em left;
+}
+
+
+section.has-footer {
+    height: 100%;
+}
+
+/** =====================================================
+* TITLE SLIDE 
+*========================================================*/
+section#title-slide :is(h1,h2) {
+    background-image: none;
+    color: #2c415b;
+    font-weight: bold;
+    height: 1em;
+    margin: 2em auto 0.5em;
+    max-width: 70%;
+    padding: 0 0 1em 0;
+    text-align: center;
+}
+section#title-slide h2 {
+    color: #3f5b80;
+    margin-top: 1em;
+}
+
+/** =====================================================
+* TODD 
+*========================================================*/
+#speaker {
+    height: 100%;
+}
+
+#speaker ul {
+    display: block;
+    font-size: 1em;
+    margin-top: 1em;
+    line-height: 1.2em;
+    max-width: 50%;
+}
+#speaker li {
+margin-bottom:1em;
+}
+img#todd {
+    border-radius: 50%;
+    position: absolute;
+    aspect-ratio: 1;
+    text-align : center;
+    right: -8%;
+    top: 18%;
+    max-width: 40%;
+}
+
+.reveal section ul {
+    line-height: 2;
+    vertical-align: top;
+    list-style: none;
+}
+
+.cols-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2em;
+}
+.cols-1-3 {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    column-gap: 2em;
+}
+
+.gap-1 {
+    column-gap: 1em;
+}
+
+.reveal .margin-0 div {
+    margin: 0;
+}
+
+img.center {
+    display: block;
+    margin: 0 auto;
+}
+img.screenshot.center {
+    display: block;
+    margin-right: auto;
+}
+
+footer {
+    font-size: 1em;
+    position : absolute;
+    display: flex;
+    width: 98%;
+    bottom:-1%;
+    padding-left: 1em;;
+    height: 40%;
+    justify-content: end;
+    z-index: 10000;
+}
+
+footer .website {
+    color: var(--idDarkGreen);
+    bottom: 3%;
+    font-size: 0.6em;
+    left: 2%;
+    position: absolute;
+}
+
+footer.white .website {
+    color: var(--idLightGray);
+}
+
+
+.hidden:is( header, footer) {
+    display: none;
+}
+
+:not(.current-fragment).none-invisible {
+    display: none;
+}
+
+
+.fullvideo {
+    background-image: none;
+}
+
+#resource-bitly {
+    float: right;
+    max-width: 20%;
+    background: white;
+    border-radius: 1.2em;
+}
+
+// Typography
+
+a.href {
+    display: block;
+    font-size:0.6em;
+    color: var(--idDarkBlue);
+}
+
+a.href:hover {
+    color: black;
+    text-decoration: underline;
+}
+
+.reveal .slides {
+text-align: left;
+// background: linear-gradient(180deg, rgba(120,179,237, 1),
+// rgba(212,247,255, 1));
+}
+
+.reveal .hide-background{
+    background-image: none;
+}
+
+
+
+.reveal h1 {
+    font-size: 1.6em;
+}
+.reveal h1 {
+    margin: 1em 0 0 2.5em;
+}
+.reveal h2 {
+    font-size: 1.3em;
+}
+.reveal h1 + h2 {
+margin-top: -0.5em;
+font-size: 1.3em;
+}
+
+.dreamin {
+    font-family: "Nunito";
+    font-size: 1.1em
+}
+
+.accent {
+ color: var(--accent);
+}
+.attribution {
+    font-size: 0.5em;
+}
+
+.reveal .r-stack>* {
+    margin: 0 auto;
+}
+
+.reveal pre {
+    border-radius: 0.5em;
+    font-size: 0.7em;
+    margin: 0 auto;
+    height: 800px;
+}
+.reveal pre code {
+    border-radius: 0.5em;
+    padding: 0 0.5em;
+}
+.reveal pre.padding code {
+    padding: 1em 0.5em;
+}
+
+pre.center {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 70%;
+}
+
+#refreshview-lws2 pre.center {
+    max-width: 80%;
+}
+
+
+
+tr.highlight-line td.hljs-ln-code {
+    font-weight: bold;
+    border:3px dashed var(--idDarkBlue);
+    border-width: 0 5px 0 0;
+}
+tr.highlight-line td.hljs-ln-numbers {
+    color: var(--idLightGray);
+    font-weight: bold;
+}
+
+li.code {
+    background-color: var(--idDarkBlue);
+    border-radius: 16px;
+    color: var(--idLightGray);
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    margin: 0.2em 0;
+    padding: 0 0 0 0.8em;
+}
+
+#resources li {
+    line-height: 1.1em;
+    margin-bottom: 1.5em;
+}
+
+ol {
+    width: 100%;
+}
+
+.seen {
+    opacity: 0.5;
+}
+
+.reveal h1.filename {
+    margin: 1em 0 0.5em 2.5em;
+    font-family: monospace;
+}
+
+p.filename {
+    text-align: center;
+    font-size: 0.8em;
+    font-family: monospace;
+}
+
+hr {
+    background-color: var(--accent);
+    border: none;
+    height: 3px;
+    max-width: 20%;
+}
+
+#me img {
+    border-radius: 0.5em;
+    margin: 0 0 0 1em;
+    max-width: 37%;
+}
+#take-things-further-01 pre,
+#invoice-web-service pre,
+#invoice-target-xml pre,
+#invoice-dw-script pre {
+    height: 570px;
+}
+img.screenshot {
+    box-shadow: var(--accent) 5px 8px 35px;
+    border-radius: 0.5em;
+    margin-right: 1em;
+    padding: 0.1em;
+    background: grey;
+    /* border: 1px solid black; */
+    border-radius: 1em;
+    max-height:80%;
+}
+img.screenshot, video {
+//  box-shadow: var(--accent) 5px 8px 35px;
+    border-radius: 0.2em;
+}
+
+img.qrcode {
+    max-width: 3em;
+    position: absolute;
+    right: 5em;
+    margin-top: -1.5em;
+    background: white;
+    border-radius: 10px;
+//  border: 1px solid var(--naGreen);
+}
+img.width80 {
+    width: 80%;
+}
+
+img.width1000 {
+width: 1000px;
+}
+
+
+img#x-namepace {
+    position: absolute;
+    top: 12%;
+    right: 8%;
+}
+
+// ICONS
+i.center {
+    color: var(--accent);
+    display: grid;
+    justify-content: center;
+}
+
+
+// QUESTIONS / ANSWER
+
+ul.qanda {
+    width: 100%;
+}
+.question {
+    display: inline-block;
+    width: 50%
+}
+
+.answer {
+    color: var(--idLightGreen);
+}
