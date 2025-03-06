@@ -94,7 +94,7 @@
 					<h1>We're not doing this alone</h1>
 				</section>
 				<section class="fullvideo" class="fullvideo circle-bottom"
-				"  data-background-size="contain"
+					data-background-size="contain"
 					data-background-video ="assets/vids/bonjour.m4v" >
 					<aside class="notes">
 						<ul>
@@ -109,7 +109,7 @@
 					===========================================================
 					EXTENSIONS
 				-->
-				<section class="has-footer has-header-left"  ">
+				<section class="has-footer circle-bottom has-footer">
 					<h1>So... extensions you say?</h1>
 				</section>
 				<section class="fullvideo" class="fullvideo"
@@ -180,7 +180,7 @@
 						</ul>
 					</aside>					
 				</section>
-				<section class="has-footer has-header-left"  ">
+				<section class="has-footer circle-bottom has-footer">
 					<h1>INSTALL THE TOOLS!!</h1>
 						
 					<pre ><code class="language-yaml">
@@ -193,8 +193,8 @@
 					</aside>					
 				</section>
 				<section class="fullvideo" class="fullvideo"
-				"  data-background-size="contain"
-					data-background-video ="assets/vids/id-getting-started.m4v" >
+				  data-background-size="contain"
+					data-background-video ="assets/vids/getting-started.mp4" >
 					<aside class="notes">
 						<ul>
 							<li></li>
@@ -203,7 +203,7 @@
 				</section>
 				<section class="fullvideo" class="fullvideo"
 				  data-background-size="contain"
-					data-background-video ="assets/vids/id-bonjour-tous-le-monde.m4v" >
+					data-background-video ="assets/vids/hello-world.mp4" >
 					<aside class="notes">
 						<ul>
 							<li></li>
@@ -216,22 +216,22 @@
 					===========================================================
 					WHAT ABOUT OUR USE CASE
 				-->
-				<section class="has-footer has-header-left">
+				<section class="has-footer has-header circle-bottom">
 					<h1>What about our use case?</h1>
 				</section>
-				<section class="has-footer has-header-left circle-right">
+				<section class="has-footer has-header circle-right">
 						<h1 class="filename">package.json</h1>
 						<pre class="padding"><code class="language-json" data-trim data-line-numbers="0|8-11">
 ...						
 "contributes": {
 	"commands": [
 		{
-			"command": "id-talk.helloWorld",
+			"command": "sf-status.helloWorld",
 			"title": "ID: Hello"
 		},
 		{
-			"command": "id-talk.getStatus",
-			"title": "ID: Get Org Status"
+			"command": "sf-status.getStatus",
+			"title": "Get Org Status"
 		}
 	]
 }
@@ -244,13 +244,13 @@
 						</ul>
 					</aside>		
 				</section>
-				<section class="has-footer has-header-left">
+				<section class="has-footer has-header circle-right">
 					<h1 class="filename">extension.ts</h1>
 						<pre><code class="language-typescript" data-trim data-line-numbers="0|3-9|6-7|13-22">
 ...	
 
 const disposableGetStatus = commands.registerCommand(
-	'id-talk.getStatus',
+	'sf-status.getStatus',
 	async () => {
 		const instance = await showInputBox();
 		console.log(`Instance: ${instance}`);
@@ -281,7 +281,7 @@ async function showInputBox() {
 				</section>
 				<section class="fullvideo" class="fullvideo"
 				data-background-size="contain"
-					data-background-video ="assets/vids/id-input.m4v">
+					data-background-video ="assets/vids/input.mp4">
 					<aside class="notes">
 						<ul>
 							<li></li>
@@ -294,7 +294,7 @@ async function showInputBox() {
 					===========================================================
 					CALL THE API
 				-->
-				<section class="has-footer has-header-left">
+				<section class="has-footer has-header circle-right">
 					<h1 class="filename">status.service.ts</h1>
 						<pre class="padding"><code class="language-typescript" data-trim data-line-numbers="0|3|4|5-6|">
 ...
@@ -316,7 +316,7 @@ export async function instanceStatus(instance: string) {
 				</section>
 				<section class="fullvideo" class="fullvideo"
 				data-background-size="contain"
-					data-background-video ="assets/vids/id-status.m4v">
+					data-background-video ="assets/vids/status.mp4">
 					<aside class="notes">
 						<ul>
 							<li></li>
@@ -329,7 +329,7 @@ export async function instanceStatus(instance: string) {
 					===========================================================
 					OUTPUT CHANNELS
 				-->
-				<section class="has-footer has-header-left">
+				<section class="has-footer has-header circle-bottom">
 					<h1>That's all very good, but...</h1>
 					<div class="fragment">
 					<p class="filename">log.service.ts</p>
@@ -358,7 +358,7 @@ outputChannel.appendLine("Hullo again!");
 				</section>
 				<section class="fullvideo" class="fullvideo"
 				data-background-size="contain"
-					data-background-video ="assets/vids/id-output.m4v">
+					data-background-video ="assets/vids/output.mp4">
 					<aside class="notes">
 						<ul>
 							<li></li>
@@ -371,7 +371,7 @@ outputChannel.appendLine("Hullo again!");
 					===========================================================
 					MODAL
 				-->
-				<section class="has-footer has-header-left">
+				<section class="has-footer has-header circle-bottom">
 					<h1>Better... but not really friendly</h1>
 					<div class="fragment">
 						<p class="filename">extension.ts</p>
@@ -400,7 +400,7 @@ return window.showInformationMessage(
 				</section>
 				<section class="fullvideo" class="fullvideo"
 				data-background-size="contain"
-					data-background-video ="assets/vids/id-modal.m4v">
+					data-background-video ="assets/vids/modal.mp4">
 					<aside class="notes">
 						<ul>
 							<li></li>
@@ -413,13 +413,13 @@ return window.showInformationMessage(
 					===========================================================
 					ALIAS + ORG RECORD
 				-->
-				<section class="has-footer has-header-left">
+				<section class="has-footer has-header circle-bottom">
 					<h1>Which instance <em>am</em> I?</h1>
 					<ul class="qanda">
 						<li><span class="question fragment">Does anything know?</span><span class="answer fragment">Your org does</span></li>
 						<li><span class="question fragment">What's the current org?</span><span class="answer fragment">.sfdx/sfdx-config.json</span></li>
-						<li><span class="question fragment">What about the username?</span><span class="answer fragment">~/.sfdx/aliases.json</span></li>
-						<li><span class="question fragment">Can we query an org via a username?</span><span class="answer fragment">Yes... it took some digging</span></li>
+						<li><span class="question fragment">What about the username?</span><span class="answer fragment">~/.sfdx/alias.json</span></li>
+						<li><span class="question fragment">Query an org via a username?</span><span class="answer fragment">Yes... it took some digging</span></li>
 					</ul>
 					<aside class="notes">
 						<ul>
@@ -427,7 +427,7 @@ return window.showInformationMessage(
 						</ul>
 					</aside>
 				</section>
-				<section class="has-footer has-header-left">
+				<section class="has-footer has-header circle-bottom">
 						<h1>Which instance <em>am</em> I?</h1>
 					<div class="">
 						<p class="filename">org.service.ts</p>
@@ -456,22 +456,7 @@ const rawQueryData = await connection.query(
 				</section>
 				<section class="fullvideo" class="fullvideo"
 				data-background-size="contain"
-					data-background-video ="assets/vids/id-org-record.m4v">
-					<aside class="notes">
-						<ul>
-							<li></li>
-						</ul>
-					</aside>					
-				</section>
-
-
-				<!-- 
-					===========================================================
-					DEFAULT INSTANCE
-				-->
-				<section class="fullvideo" class="fullvideo"
-				data-background-size="contain"
-					data-background-video ="assets/vids/id-default-instance.m4v">
+					data-background-video ="assets/vids/default-instance.mp4">
 					<aside class="notes">
 						<ul>
 							<li></li>
@@ -484,7 +469,7 @@ const rawQueryData = await connection.query(
 					===========================================================
 					INVOCATION
 				-->
-				<section class="has-footer has-header-left">
+				<section class="has-footer has-header circle-bottom">
 					<h1>How else can we invoke this?</h1>
 						
 					<div class="fragment">
@@ -494,10 +479,15 @@ const rawQueryData = await connection.query(
 	"menus": {
 		"explorer/context": [
 			{
-				"command": "salesforce-status.org-status",
+				"command": "sf-status.getStatus",
 				"group": "z_commands"
 			}
-		],							
+		],
+		"commandPalette": [
+			{
+				"command": "salesforce-status.org-status"
+			}
+		]							
 							</code></pre>
 					</div>
 					<aside class="notes">
@@ -508,7 +498,7 @@ const rawQueryData = await connection.query(
 				</section>
 				<section class="fullvideo" class="fullvideo"
 				data-background-size="contain"
-					data-background-video ="assets/vids/id-menu.m4v">
+					data-background-video ="assets/vids/menu.mp4">
 					<aside class="notes">
 						<ul>
 							<li></li>
@@ -521,12 +511,13 @@ const rawQueryData = await connection.query(
 					===========================================================
 					POLISH
 				-->
-				<section class="has-footer has-header-left">
+				<section class="has-footer has-header circle-bottom">
 					<h1>Let's take this a step further</h1>
 					<aside class="notes">
 						<ul>
 							<li>More usable output</li>
 							<li>Interactive</li>
+							<li>We saw that the git extension had loads of real estate</li>
 						</ul>
 					</aside>					
 				</section>
@@ -540,11 +531,12 @@ const rawQueryData = await connection.query(
 					</aside>					
 				</section>
 
-					<!-- 
+				
+				<!-- 
 					===========================================================
-					POLISH
+					PUBLISHING
 				-->
-				<section class="has-footer has-header-left">
+				<section class="has-footer has-header circle-right">
 					<h1>Publishing</h1>
 					<div class="cols-2">
 						<ul>
@@ -570,11 +562,11 @@ const rawQueryData = await connection.query(
 					===========================================================
 					Summary
 				-->
-				<section class="has-footer has-header-left">
+				<section class="has-footer has-header circle-right">
 					<h1>So, in summary</h1>
 					<ul>
 						<li class="fragment">Extensions can be awesome</li>
-						<li class="fragment">Great set of suppporting tools and APIs</li>
+						<li class="fragment">Great set of supporting tools and APIs</li>
 						<li class="fragment">Got an itch, scratch it</li>
 					</ul>
 					<aside class="notes">
@@ -590,7 +582,7 @@ const rawQueryData = await connection.query(
 					===========================================================
 					Resources
 				-->
-				<section class="has-footer has-header-left" >
+				<section class="has-footer has-header circle-bottom" >
 					<h1>Resources</h1>
 					<img id="resource-bitly" class="screenshot" src="assets/imgs/bit.ly_VsCodeFTD24.png" />
 					<ul>
