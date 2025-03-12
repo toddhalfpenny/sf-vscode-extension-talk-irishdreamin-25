@@ -79,7 +79,7 @@ section.circle-right {
     background-image: url(../../assets/imgs/irish-dreamin.png), url(../../assets/imgs/back-circle-right.png);
     background-repeat: no-repeat;
     background-size: 3em, 47%;
-    background-position: top 1em left, right;
+    background-position: top 1em left 0.5em, right;
 }
 
 
@@ -94,7 +94,7 @@ section.circle-bottom {
     background-image: url(../../assets/imgs/back-circle-bottom.png), url(../../assets/imgs/irish-dreamin.png), ;
     background-repeat: no-repeat;
     background-size: 100%, 3em;
-    background-position:  bottom center, top 1em left;
+    background-position:  bottom center, top 1em right 1em;
 }
 
 
@@ -105,19 +105,19 @@ section.has-footer {
 /** =====================================================
 * TITLE SLIDE 
 *========================================================*/
-section#title-slide :is(h1,h2) {
+section.title-slide :is(h1,h2) {
     background-image: none;
-    color: #2c415b;
+    // color: #2c415b;
     font-weight: bold;
     height: 1em;
-    margin: 2em auto 0.5em;
+    margin: 2em auto 0.5em !important;
     max-width: 70%;
     padding: 0 0 1em 0;
     text-align: center;
 }
-section#title-slide h2 {
-    color: #3f5b80;
-    margin-top: 1em;
+section.title-slide h2 {
+    // color: #3f5b80;
+    margin-top: 1em !important;
 }
 
 /** =====================================================
@@ -257,12 +257,26 @@ text-align: left;
 .reveal h1 {
     margin: 1em 0 0 2.5em;
 }
+
+.reveal .circle-bottom h1 {
+    margin-left: 53px;
+}
+
 .reveal h2 {
     font-size: 1.3em;
 }
 .reveal h1 + h2 {
 margin-top: -0.5em;
 font-size: 1.3em;
+}
+
+.center {
+    text-align: center;
+}
+
+.circle-right .center {
+    margin-top: 5em;
+    width: 50%;
 }
 
 .dreamin {
@@ -285,7 +299,10 @@ font-size: 1.3em;
     border-radius: 0.5em;
     font-size: 0.7em;
     margin: 0 auto;
-    height: 800px;
+    height: 770px;
+}
+.reveal pre.short7 {
+    height: 700px;
 }
 .reveal pre code {
     border-radius: 0.5em;
@@ -393,12 +410,14 @@ img.qrcode {
     border-radius: 10px;
 //  border: 1px solid var(--naGreen);
 }
+img.width60 {
+    width: 60%;
+}
 img.width80 {
     width: 80%;
 }
-
 img.width1000 {
-width: 1000px;
+    width: 1000px;
 }
 
 

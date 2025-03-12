@@ -24,13 +24,23 @@
 				-->
 				<header id='header' class="hidden">
 				</header>
+				<!-- 
+					===========================================================
+					SPONSORS 01
+				-->
+				<section data-background-image="assets/imgs/sponsors-slide.svg" data-background-size="contain">
+				</section>
 
 
 				<!-- 
 					===========================================================
 					TITLE
 				-->
-				<section id="title-slide" data-background-image="assets/imgs/title.png" data-background-size="contain">
+				<section class="title-slide has-footer circle-bottom" data-background-image="assets/imgs/title.png" data-background-size="contain">
+					<h1>Salesforce's best kept secret,<br/>Agentforce</h1>
+					<h2>Todd Halfpenny</h2>
+				</section>
+				<section class="title-slide has-footer circle-bottom" data-background-image="assets/imgs/title.png" data-background-size="contain">
 					<h1>Build your first Code Builder<br/>and VS Code Extension</h1>
 					<h2>Todd Halfpenny</h2>
 					<aside class="notes">
@@ -87,7 +97,7 @@
 				</section>
 
 				<!-- 
-					===========================================================
+					======================================f=====================
 					NOT DOING THIS ALONE
 				-->
 				<section class="has-footer has-header-left circle-bottom">
@@ -95,7 +105,7 @@
 				</section>
 				<section class="fullvideo" class="fullvideo circle-bottom"
 					data-background-size="contain"
-					data-background-video ="assets/vids/bonjour.m4v" >
+					data-background-video ="assets/vids/hi-todd-02.mp4" >
 					<aside class="notes">
 						<ul>
 							<li></li>
@@ -333,7 +343,7 @@ export async function instanceStatus(instance: string) {
 					<h1>That's all very good, but...</h1>
 					<div class="fragment">
 					<p class="filename">log.service.ts</p>
-					<pre class="padding"><code class="language-typescript" data-trim data-line-numbers="0|1|4-5|10|">
+					<pre class="short7 padding"><code class="language-typescript" data-trim data-line-numbers="0|1|4-5|10|">
 import { OutputChannel } from "vscode";
 
 export const activate = (context: ExtensionContext): void => {
@@ -375,7 +385,7 @@ outputChannel.appendLine("Hullo again!");
 					<h1>Better... but not really friendly</h1>
 					<div class="fragment">
 						<p class="filename">extension.ts</p>
-						<pre class="padding"><code class="language-typescript" data-trim data-line-numbers="0|1-2|4-7|9-12">
+						<pre class="short7 padding"><code class="language-typescript" data-trim data-line-numbers="0|1-2|4-7|9-12">
 const title: instance;
 const statusText = `Status: ${status.status}\n\rEnv:...}`,
 
@@ -474,7 +484,7 @@ const rawQueryData = await connection.query(
 						
 					<div class="fragment">
 						<p class="filename">package.json</p>
-						<pre class="padding" ><code class="language-json">
+						<pre class=""><code class="language-json">
 "contributes": {
 	"menus": {
 		"explorer/context": [
@@ -511,19 +521,89 @@ const rawQueryData = await connection.query(
 					===========================================================
 					POLISH
 				-->
-				<section class="has-footer has-header circle-bottom">
-					<h1>Let's take this a step further</h1>
+				<section class="has-footer has-header circle-right">
+					<h1>Make it sexy</h1>
+					<ul>
+						<li class="fragment">Progress bars for slower transactions</li>
+						<li class="fragment">Use a dedicated panel</li>
+						<li class="fragment">Render using HTML and CSS</li>
+						<li class="fragment">Make it interactive</li>
+					</ul>
 					<aside class="notes">
 						<ul>
-							<li>More usable output</li>
-							<li>Interactive</li>
-							<li>We saw that the git extension had loads of real estate</li>
+							<li>Improve the UI</li>
+							<li>Like our git extension</li>
+							<li>Highlight important data</li>
+							<li>Link out for more information</li>
 						</ul>
 					</aside>					
 				</section>
+
+				<!-- PROGRESS BARS 01 -->
+				<section class="has-footer circle-bottom">						
+					<h1>Progress Bars (1)</h1>
+						<p class="filename">extension.ts</p>
+						<pre class="short7 padding"><code class="language-javascript"  data-trim data-line-numbers="0|1|3-5|7-10">
+await window.withProgress(
+	{
+		location: ProgressLocation.Notification,
+		title: "I am long running!",
+		cancellable: true,
+	},				
+	(progress, token) => {
+		// Some long running job that returns a promise
+		resolve();
+	}	
+);
+							</code></pre>
+					<aside class="notes">
+						<ul>
+							<li></li>
+						</ul>
+					</aside>					
+				</section>
+				<section class="has-footer has-header circle-bottom">
+					<h1>Progress Bars (1)</h1>
+					<h1></h1>
+					<img class="width60 screenshot center" src="assets/imgs/long-running-01.gif" />
+				</section>
+
+				<!-- PROGRESS BARS 02 -->
+				<section class="has-footer circle-bottom">						
+					<h1>Progress Bars (2)</h1>
+						<p class="filename">extension.ts</p>
+						<pre ><code class="language-javascript"  data-trim data-line-numbers="0|4|6-8|10-12">
+await window.withProgress(
+	...			
+	(progress, token) => {
+		progress.report({ increment: 0 });
+
+    setTimeout(() => {
+      progress.report({increment: 10, message: "still going"});
+    }, 2000);
+
+    setTimeout(() => {
+      progress.report({increment: 40, message: "still going even more"});
+    }, 4000);
+	}	
+);
+							</code></pre>
+					<aside class="notes">
+						<ul>
+							<li></li>
+						</ul>
+					</aside>					
+				</section>
+				<section class="has-footer has-header circle-bottom">
+					<h1>Progress Bars (2)</h1>
+					<h1></h1>
+					<img class="width60 screenshot center" src="assets/imgs/long-running-02.gif" />
+				</section>
+
+
 				<section class="fullvideo" class="fullvideo"
 				data-background-size="contain"
-					data-background-video ="assets/vids/id-take-it-further.m4v">
+					data-background-video ="assets/vids/make-it-sexy.mp4">
 					<aside class="notes">
 						<ul>
 							<li></li>
@@ -600,15 +680,28 @@ const rawQueryData = await connection.query(
 
 				<!-- 
 					===========================================================
+					SPONSORS 01
+				-->
+				<section data-background-image="assets/imgs/sponsors-slide.svg" data-background-size="contain">
+				</section>
+
+
+				<!-- 
+					===========================================================
 					THANK YOU
 				-->
-				<section id="title-slide" data-background-image="assets/imgs/thank-you.png" data-background-size="contain">
+				<section  class="has-footer has-header circle-right" >
+					<div class="center">
+					<h2>Thank you</h2>
+					<h2>Any questions?</h2>
+				</div>
 					<aside class="notes">
 						<ul>
 							<li></li>
 						</ul>
 					</aside>
 				</section>
+
 
 
 				<!-- 
